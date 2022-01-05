@@ -1,0 +1,8 @@
+services:
+  traceroute:
+    build: ./
+    restart: always
+    volumes:
+      - ./srcs:/traceroute
+    ports:
+      - '22:22'
