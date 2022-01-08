@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/ft_ping/includes/ft_ping.h
+stdio.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+netdb.h
+-
+unistd.h
+-
+string.h
+-
+stdlib.h
+-
+netinet/ip_icmp.h
+-
+signal.h
+-
+sys/time.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+
+/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/main.c
+stdio.h
+/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/stdio.h
+ft_ping/includes/ft_ping.h
+/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/ft_ping/includes/ft_ping.h
+

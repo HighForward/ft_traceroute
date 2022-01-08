@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/ft_traceroute.dir/srcs/main.c.o CMakeFiles/ft_traceroute.dir/srcs/pkt.c.o CMakeFiles/ft_traceroute.dir/srcs/utils.c.o CMakeFiles/ft_traceroute.dir/srcs/dns.c.o  -o ft_traceroute 
