@@ -13,5 +13,5 @@ RUN apt-get -y install gcc
 
 EXPOSE 22
 
-CMD sleep 100000000
-# ENTRYPOINT ["/traceroute/srcs/setup_ssh.sh"]
+# CMD sleep 100000000
+ENTRYPOINT ["/traceroute/srcs/setup_ssh.sh"]

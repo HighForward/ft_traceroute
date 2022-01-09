@@ -38,6 +38,9 @@ typedef struct traceroute {
     struct ICMP_pkt send_pkt;
 } traceroute;
 
+//ARGS
+int parse_arg(int argc, char **argv);
+
 //SOCKET UTILITY
 int create_icmp_socket(traceroute *traceroute);
 int create_udp_socket(traceroute *traceroute, int ttl);
@@ -45,10 +48,6 @@ int create_udp_socket(traceroute *traceroute, int ttl);
 
 //DNS
 int     resolve_dns(traceroute *traceroute);
-
-//PACKET
-void fill_icmp_packet(ICMP_pkt *ping_pkt);
-int send_data(traceroute *traceroute);
 
 //UTILS
 int     str_error(char *str, int code);

@@ -14,7 +14,7 @@ int resolve_dns(traceroute *traceroute)
 
     if (getaddrinfo(traceroute->arg_target, "33434", &hints, &result) != 0)
     {
-        printf("ft_ping: %s: Name or service not known\n", traceroute->arg_target);
+        printf("Cannot handle \"host\" cmdline arg `%s'\n", traceroute->arg_target);
         return (1);
     }
 

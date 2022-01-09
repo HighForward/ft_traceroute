@@ -100,6 +100,9 @@ int main(int argc, char **argv)
     bzero(&traceroute, sizeof(traceroute));
     traceroute.arg_target = argv[1];
 
+    if (parse_arg(argc, argv) < 0)
+        return (1);
+
     //create UDP socket for sending packet
     if (create_udp_socket(&traceroute, 80) < 0)
         return (1);
