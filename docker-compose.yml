@@ -3,6 +3,6 @@ services:
     build: ./
     restart: always
     volumes:
-      - ./srcs:/traceroute
+      - .:/traceroute
     ports:
       - '22:22'

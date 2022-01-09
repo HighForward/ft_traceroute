@@ -6,13 +6,13 @@ int resolve_dns(traceroute *traceroute)
     memset(&hints, 0, sizeof(struct addrinfo));
 
     hints.ai_family = AF_INET;
-    hints.ai_socktype = SOCK_RAW;
-    hints.ai_protocol = IPPROTO_ICMP;
+    hints.ai_socktype = SOCK_DGRAM;
+    hints.ai_protocol = IPPROTO_UDP;
     hints.ai_flags = AI_CANONNAME;
 
     struct addrinfo *result;
 
-    if (getaddrinfo(traceroute->arg_target, NULL, &hints, &result) != 0)
+    if (getaddrinfo(traceroute->arg_target, "33434", &hints, &result) != 0)
     {
         printf("ft_ping: %s: Name or service not known\n", traceroute->arg_target);
         return (1);

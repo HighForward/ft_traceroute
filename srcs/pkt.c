@@ -37,11 +37,11 @@ void fill_icmp_packet(ICMP_pkt *ping_pkt)
 
 int send_data(traceroute *traceroute)
 {
-    if (sendto(traceroute->socket_fd, &traceroute->send_pkt, sizeof(ICMP_pkt), 0, (struct sockaddr *)&traceroute->addr_host, sizeof(struct sockaddr)) < 0)
-    {
-        printf("connect: Invalid argument\n");
-        exit(1);
-    }
+//    if (sendto(traceroute->socket_fd, &traceroute->send_pkt, sizeof(ICMP_pkt), 0, (struct sockaddr *)&traceroute->addr_host, sizeof(struct sockaddr)) < 0)
+//    {
+//        printf("connect: Invalid argument\n");
+//        exit(1);
+//    }
 
 //    printf("----------\ntype: %d\ncode: %d\nchecksum: %d\nid: %d\nsequence: %d\n----------\n",
 //           ping_base->send_pckt.hdr.type, ping_base->send_pckt.hdr.code, ping_base->send_pckt.hdr.checksum, ping_base->send_pckt.hdr.un.echo.id, ping_base->send_pckt.hdr.un.echo.sequence);

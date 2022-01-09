@@ -17,6 +17,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <errno.h>
+#include <sys/select.h>
 
 #define PING_PACKET_SIZE 56
 
@@ -28,7 +29,9 @@ typedef struct ICMP_pkt
 } ICMP_pkt;
 
 typedef struct traceroute {
-    int socket_fd;
+    int udp_socket;
+    int icmp_socket;
+    unsigned int hops;
     char *arg_target;
     char ip[INET_ADDRSTRLEN];
     struct sockaddr_in addr_host;
@@ -36,7 +39,9 @@ typedef struct traceroute {
 } traceroute;
 
 //SOCKET UTILITY
-int     create_socket(int *sockfd, int ttl);
+int create_icmp_socket(traceroute *traceroute);
+int create_udp_socket(traceroute *traceroute, int ttl);
+
 
 //DNS
 int     resolve_dns(traceroute *traceroute);
