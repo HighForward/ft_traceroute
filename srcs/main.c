@@ -1,72 +1,43 @@
 #include "../includes/ft_traceroute.h"
 
-int get_nb_len(unsigned int nb)
+int send_pkt_probes(traceroute *traceroute, tr_options *tr_options, int ttl)
 {
-    int len = 1;
-    while (nb > 10)
-    {
-        nb /= 10;
-        len++;
-    }
-    return len;
-}
 
-int send_udp_pkt_probes(traceroute *traceroute, int ttl)
-{
-    unsigned char pck_reply[(sizeof(struct ip) + 4 + 150 + sizeof(struct ip) + sizeof(struct ICMP_pkt))];
-    ft_bzero(&traceroute->send_pkt, sizeof(struct ICMP_pkt));
+    probe_info probe_info;
+    ft_bzero(&probe_info, sizeof(probe_info));
 
-    struct sockaddr_in from;
-    unsigned int size = sizeof(struct sockaddr_in);
-
-    int probes = 3;
     int reply = 0;
     double time[3] = {0, 0, 0};
 
-    printf("%*d ", get_nb_len(traceroute->hops), ttl);
+    gettimeofday(&probe_info.start, NULL);
+    gettimeofday(&probe_info.end, NULL);
 
-    char string[] = "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_";
+    if (tr_options->ICMP)
+        fill_icmp_packet(&traceroute->icmp_send_pkt);
 
-    struct timeval start;
-    struct timeval end;
+    printf("%*d  ", get_nb_len(traceroute->hops), ttl);
 
-    gettimeofday(&start, NULL);
-    gettimeofday(&end, NULL);
-
-    while (probes != 0)
+    int probes;
+    for (probes = 3; probes != 0; probes--)
     {
-
-        if (sendto(traceroute->udp_socket, string, strlen(string), 0,
-                   (const struct sockaddr *) &traceroute->addr_host, sizeof(traceroute->addr_host)) < 0)
+        if (send_data(traceroute, tr_options) < 0)
             return (-1);
 
-        gettimeofday(&start, NULL);
+        gettimeofday(&probe_info.start, NULL);
 
-        if (recvfrom(traceroute->icmp_socket, pck_reply, sizeof(pck_reply), 0, (struct sockaddr *) &from, &size) >= 0)
-        {
-            gettimeofday(&end, NULL);
-
-            double before = (double)(((double)(start.tv_sec) * 1000) + ((double)(start.tv_usec) / 1000));
-            double after = (double)(((double)(end.tv_sec) * 1000) + ((double)(end.tv_usec) / 1000));
-            double now = (after - before) * 100;
-            time[reply++] = now;
-        }
-        probes--;
+        if (recv_data(traceroute, tr_options, &probe_info) < 0)
+            return (-1);
     }
 
-    if (!reply)
-        printf("* * *\n");
-    else
-    {
-        char hit_ip[INET_ADDRSTRLEN];
-        inet_ntop(from.sin_family, &from.sin_addr, hit_ip, INET_ADDRSTRLEN);
-        printf("%s (%s)  %.3f ms  %.3f ms  %.3f ms\n", hit_ip, hit_ip, time[0], time[1], time[2]);
-    }
+    printf("\n");
+
+    if (probe_info.reached_host)
+        exit(0);
 
     return (1);
 }
 
-int traceroute_loop(traceroute *traceroute)
+int traceroute_loop(traceroute *traceroute, tr_options *tr_options)
 {
 
     struct sockaddr_in from;
@@ -82,11 +53,11 @@ int traceroute_loop(traceroute *traceroute)
     {
         //increment TTL and set ttl to socket opt
         ttl++;
-        if (setsockopt(traceroute->udp_socket, SOL_IP, IP_TTL, &ttl, sizeof(ttl)) != 0)
+        if (setsockopt(traceroute->send_socket, SOL_IP, IP_TTL, &ttl, sizeof(ttl)) != 0)
             str_error("Setting socket options to TTL failed!", -1);
 
         //send three hops and recv icmp response
-        send_udp_pkt_probes(traceroute, ttl);
+        send_pkt_probes(traceroute, tr_options, ttl);
 
         loop_index--;
     }
@@ -97,14 +68,15 @@ int traceroute_loop(traceroute *traceroute)
 int main(int argc, char **argv)
 {
     traceroute traceroute;
+    tr_options tr_options;
     bzero(&traceroute, sizeof(traceroute));
-    traceroute.arg_target = argv[1];
+    bzero(&tr_options, sizeof(tr_options));
 
-    if (parse_arg(argc, argv) < 0)
+    if (parse_args(argc, argv + 1, &traceroute, &tr_options) < 0)
         return (1);
 
     //create UDP socket for sending packet
-    if (create_udp_socket(&traceroute, 80) < 0)
+    if (create_send_socket(&traceroute, &tr_options, 1) < 0)
         return (1);
 
     //create ICMP socket for receiving packet
@@ -118,6 +90,6 @@ int main(int argc, char **argv)
     //60 byte (IP HEADER + UDP DATAGRAM + 32 BYTE DATA)
     printf("traceroute to %s (%s), 30 hops max, %lu byte packets\n", traceroute.arg_target, traceroute.ip, sizeof(struct ip) + 8 + 32);
 
-    traceroute_loop(&traceroute);
+    traceroute_loop(&traceroute, &tr_options);
 
 }

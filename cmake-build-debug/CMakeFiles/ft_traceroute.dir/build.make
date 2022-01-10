@@ -153,12 +153,62 @@ CMakeFiles/ft_traceroute.dir/srcs/dns.c.o.provides: CMakeFiles/ft_traceroute.dir
 CMakeFiles/ft_traceroute.dir/srcs/dns.c.o.provides.build: CMakeFiles/ft_traceroute.dir/srcs/dns.c.o
 
 
+CMakeFiles/ft_traceroute.dir/srcs/args.c.o: CMakeFiles/ft_traceroute.dir/flags.make
+CMakeFiles/ft_traceroute.dir/srcs/args.c.o: ../srcs/args.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ft_traceroute.dir/srcs/args.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_traceroute.dir/srcs/args.c.o   -c /mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/args.c
+
+CMakeFiles/ft_traceroute.dir/srcs/args.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_traceroute.dir/srcs/args.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/args.c > CMakeFiles/ft_traceroute.dir/srcs/args.c.i
+
+CMakeFiles/ft_traceroute.dir/srcs/args.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_traceroute.dir/srcs/args.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/args.c -o CMakeFiles/ft_traceroute.dir/srcs/args.c.s
+
+CMakeFiles/ft_traceroute.dir/srcs/args.c.o.requires:
+
+.PHONY : CMakeFiles/ft_traceroute.dir/srcs/args.c.o.requires
+
+CMakeFiles/ft_traceroute.dir/srcs/args.c.o.provides: CMakeFiles/ft_traceroute.dir/srcs/args.c.o.requires
+	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/srcs/args.c.o.provides.build
+.PHONY : CMakeFiles/ft_traceroute.dir/srcs/args.c.o.provides
+
+CMakeFiles/ft_traceroute.dir/srcs/args.c.o.provides.build: CMakeFiles/ft_traceroute.dir/srcs/args.c.o
+
+
+CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o: CMakeFiles/ft_traceroute.dir/flags.make
+CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o: ../srcs/io_pkt.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o   -c /mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/io_pkt.c
+
+CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/io_pkt.c > CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.i
+
+CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/io_pkt.c -o CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.s
+
+CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o.requires:
+
+.PHONY : CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o.requires
+
+CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o.provides: CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o.requires
+	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o.provides.build
+.PHONY : CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o.provides
+
+CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o.provides.build: CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o
+
+
 # Object files for target ft_traceroute
 ft_traceroute_OBJECTS = \
 "CMakeFiles/ft_traceroute.dir/srcs/main.c.o" \
 "CMakeFiles/ft_traceroute.dir/srcs/pkt.c.o" \
 "CMakeFiles/ft_traceroute.dir/srcs/utils.c.o" \
-"CMakeFiles/ft_traceroute.dir/srcs/dns.c.o"
+"CMakeFiles/ft_traceroute.dir/srcs/dns.c.o" \
+"CMakeFiles/ft_traceroute.dir/srcs/args.c.o" \
+"CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o"
 
 # External object files for target ft_traceroute
 ft_traceroute_EXTERNAL_OBJECTS =
@@ -167,9 +217,11 @@ ft_traceroute: CMakeFiles/ft_traceroute.dir/srcs/main.c.o
 ft_traceroute: CMakeFiles/ft_traceroute.dir/srcs/pkt.c.o
 ft_traceroute: CMakeFiles/ft_traceroute.dir/srcs/utils.c.o
 ft_traceroute: CMakeFiles/ft_traceroute.dir/srcs/dns.c.o
+ft_traceroute: CMakeFiles/ft_traceroute.dir/srcs/args.c.o
+ft_traceroute: CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o
 ft_traceroute: CMakeFiles/ft_traceroute.dir/build.make
 ft_traceroute: CMakeFiles/ft_traceroute.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable ft_traceroute"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable ft_traceroute"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ft_traceroute.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -181,6 +233,8 @@ CMakeFiles/ft_traceroute.dir/requires: CMakeFiles/ft_traceroute.dir/srcs/main.c.
 CMakeFiles/ft_traceroute.dir/requires: CMakeFiles/ft_traceroute.dir/srcs/pkt.c.o.requires
 CMakeFiles/ft_traceroute.dir/requires: CMakeFiles/ft_traceroute.dir/srcs/utils.c.o.requires
 CMakeFiles/ft_traceroute.dir/requires: CMakeFiles/ft_traceroute.dir/srcs/dns.c.o.requires
+CMakeFiles/ft_traceroute.dir/requires: CMakeFiles/ft_traceroute.dir/srcs/args.c.o.requires
+CMakeFiles/ft_traceroute.dir/requires: CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o.requires
 
 .PHONY : CMakeFiles/ft_traceroute.dir/requires
 

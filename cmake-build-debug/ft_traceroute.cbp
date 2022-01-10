@@ -78,7 +78,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/args.c">
+			<Option target="ft_traceroute"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/dns.c">
+			<Option target="ft_traceroute"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/io_pkt.c">
 			<Option target="ft_traceroute"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/main.c">

@@ -1,4 +1,4 @@
-SRCS		=	./srcs/main.c ./srcs/utils.c ./srcs/setup.c ./srcs/pkt.c ./srcs/dns.c ./srcs/args.c
+SRCS		=	./srcs/main.c ./srcs/utils.c ./srcs/setup.c ./srcs/pkt.c ./srcs/dns.c ./srcs/args.c ./srcs/io_pkt.c
 
 NAME		=	ft_traceroute
 

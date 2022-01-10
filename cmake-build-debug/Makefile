@@ -123,6 +123,33 @@ ft_traceroute/fast:
 	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/build
 .PHONY : ft_traceroute/fast
 
+srcs/args.o: srcs/args.c.o
+
+.PHONY : srcs/args.o
+
+# target to build an object file
+srcs/args.c.o:
+	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/srcs/args.c.o
+.PHONY : srcs/args.c.o
+
+srcs/args.i: srcs/args.c.i
+
+.PHONY : srcs/args.i
+
+# target to preprocess a source file
+srcs/args.c.i:
+	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/srcs/args.c.i
+.PHONY : srcs/args.c.i
+
+srcs/args.s: srcs/args.c.s
+
+.PHONY : srcs/args.s
+
+# target to generate assembly for a file
+srcs/args.c.s:
+	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/srcs/args.c.s
+.PHONY : srcs/args.c.s
+
 srcs/dns.o: srcs/dns.c.o
 
 .PHONY : srcs/dns.o
@@ -149,6 +176,33 @@ srcs/dns.s: srcs/dns.c.s
 srcs/dns.c.s:
 	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/srcs/dns.c.s
 .PHONY : srcs/dns.c.s
+
+srcs/io_pkt.o: srcs/io_pkt.c.o
+
+.PHONY : srcs/io_pkt.o
+
+# target to build an object file
+srcs/io_pkt.c.o:
+	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o
+.PHONY : srcs/io_pkt.c.o
+
+srcs/io_pkt.i: srcs/io_pkt.c.i
+
+.PHONY : srcs/io_pkt.i
+
+# target to preprocess a source file
+srcs/io_pkt.c.i:
+	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.i
+.PHONY : srcs/io_pkt.c.i
+
+srcs/io_pkt.s: srcs/io_pkt.c.s
+
+.PHONY : srcs/io_pkt.s
+
+# target to generate assembly for a file
+srcs/io_pkt.c.s:
+	$(MAKE) -f CMakeFiles/ft_traceroute.dir/build.make CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.s
+.PHONY : srcs/io_pkt.c.s
 
 srcs/main.o: srcs/main.c.o
 
@@ -240,9 +294,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ft_traceroute"
 	@echo "... edit_cache"
+	@echo "... srcs/args.o"
+	@echo "... srcs/args.i"
+	@echo "... srcs/args.s"
 	@echo "... srcs/dns.o"
 	@echo "... srcs/dns.i"
 	@echo "... srcs/dns.s"
+	@echo "... srcs/io_pkt.o"
+	@echo "... srcs/io_pkt.i"
+	@echo "... srcs/io_pkt.s"
 	@echo "... srcs/main.o"
 	@echo "... srcs/main.i"
 	@echo "... srcs/main.s"

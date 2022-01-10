@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_traceroute.dir/srcs/pkt.c.o"
   "CMakeFiles/ft_traceroute.dir/srcs/utils.c.o"
   "CMakeFiles/ft_traceroute.dir/srcs/dns.c.o"
+  "CMakeFiles/ft_traceroute.dir/srcs/args.c.o"
+  "CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o"
   "ft_traceroute.pdb"
   "ft_traceroute"
 )

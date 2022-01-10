@@ -4,7 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/args.c" "/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles/ft_traceroute.dir/srcs/args.c.o"
   "/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/dns.c" "/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles/ft_traceroute.dir/srcs/dns.c.o"
+  "/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/io_pkt.c" "/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles/ft_traceroute.dir/srcs/io_pkt.c.o"
   "/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/main.c" "/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles/ft_traceroute.dir/srcs/main.c.o"
   "/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/pkt.c" "/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles/ft_traceroute.dir/srcs/pkt.c.o"
   "/mnt/c/Users/Forward/Desktop/ft_traceroute/srcs/utils.c" "/mnt/c/Users/Forward/Desktop/ft_traceroute/cmake-build-debug/CMakeFiles/ft_traceroute.dir/srcs/utils.c.o"

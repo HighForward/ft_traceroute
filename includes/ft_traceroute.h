@@ -29,21 +29,34 @@ typedef struct ICMP_pkt
 } ICMP_pkt;
 
 typedef struct traceroute {
-    int udp_socket;
+    int send_socket;
     int icmp_socket;
     unsigned int hops;
     char *arg_target;
     char ip[INET_ADDRSTRLEN];
     struct sockaddr_in addr_host;
-    struct ICMP_pkt send_pkt;
+    struct ICMP_pkt icmp_send_pkt;
 } traceroute;
 
+typedef struct tr_options {
+    int ICMP;
+} tr_options;
+
+typedef struct probe_info {
+    struct sockaddr_in from;
+    struct timeval start;
+    struct timeval end;
+    char ip[INET_ADDRSTRLEN];
+    int reached_host;
+} probe_info;
+
 //ARGS
-int parse_arg(int argc, char **argv);
+int parse_args(int argc, char **argv, traceroute *traceroute, tr_options *tr_options);
+
 
 //SOCKET UTILITY
 int create_icmp_socket(traceroute *traceroute);
-int create_udp_socket(traceroute *traceroute, int ttl);
+int create_send_socket(traceroute *traceroute, tr_options *tr_options, int ttl);
 
 
 //DNS
@@ -52,6 +65,17 @@ int     resolve_dns(traceroute *traceroute);
 //UTILS
 int     str_error(char *str, int code);
 void	ft_bzero(void *s, size_t n);
+int 	ft_strncmp(const char *s1, const char *s2, size_t n);
+int 	ft_strlen(const char *str);
+int     get_nb_len(unsigned int nb);
+
+//PACKETS
+unsigned short checksum(void *b, int len);
+void fill_icmp_packet(ICMP_pkt *ping_pkt);
+
+//IO
+int send_data(traceroute *traceroute, tr_options *tr_options);
+int recv_data(traceroute *traceroute, tr_options *tr_options, probe_info *probe_info);
 
 
 #endif
