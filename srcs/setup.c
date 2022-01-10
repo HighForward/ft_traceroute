@@ -11,9 +11,6 @@ int create_send_socket(traceroute *traceroute, tr_options *tr_options, int ttl)
     if (traceroute->send_socket < 0)
         return str_error("permission denied, contact your administrator", -1);
 
-    if (setsockopt(traceroute->send_socket, SOL_IP, IP_TTL, &ttl, sizeof(ttl)) != 0)
-        return str_error("Setting socket options to TTL failed!", -1);
-
     return (1);
 }
 

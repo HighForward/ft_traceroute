@@ -41,7 +41,7 @@ int recv_data(traceroute *traceroute, tr_options *tr_options, probe_info *probe_
         //print timestamp
         gettimeofday(&probe_info->end, NULL);
 
-        printf("%.3lf ms ", (double )(probe_info->end.tv_sec - probe_info->start.tv_sec) + (double )((double )(probe_info->end.tv_usec - probe_info->start.tv_usec)/1000.0));
+        printf("%.3lf ms  ", (double )(probe_info->end.tv_sec - probe_info->start.tv_sec) + (double )((double )(probe_info->end.tv_usec - probe_info->start.tv_usec)/1000.0));
         if (tr_options->ICMP)
         {
             ICMP_pkt *tmp_ICMP;

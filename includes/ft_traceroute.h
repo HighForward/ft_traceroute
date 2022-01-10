@@ -31,7 +31,6 @@ typedef struct ICMP_pkt
 typedef struct traceroute {
     int send_socket;
     int icmp_socket;
-    unsigned int hops;
     char *arg_target;
     char ip[INET_ADDRSTRLEN];
     struct sockaddr_in addr_host;
@@ -40,6 +39,9 @@ typedef struct traceroute {
 
 typedef struct tr_options {
     int ICMP;
+    int max_hops;
+    int nb_probes;
+    int first_ttl;
 } tr_options;
 
 typedef struct probe_info {
@@ -68,6 +70,7 @@ void	ft_bzero(void *s, size_t n);
 int 	ft_strncmp(const char *s1, const char *s2, size_t n);
 int 	ft_strlen(const char *str);
 int     get_nb_len(unsigned int nb);
+int	    ft_atoi(const char *nptr);
 
 //PACKETS
 unsigned short checksum(void *b, int len);
