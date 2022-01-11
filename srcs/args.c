@@ -7,7 +7,8 @@ void perform_h()
     printf("Options:\n");
     printf("\t-h:\t\tRead this help and exit\n");
     printf("\t-I:\t\tUse ICMP ECHO for tracerouting\n");
-    printf("\t-q nqueries:\t\tSet the number of probes per each hop. Default is 3\n");
+    printf("\t-q nqueries:\tSet the number of probes per each hop. Default is 3\n");
+    printf("\t-z sendwait:\tMinimal time interval in sec between probes (default 0)\n");
     printf("\t-m max_ttl:\tSet the max number of hops (max TTL to be\n"
            "                              reached). Default is 30\n\n");
     printf("Arguments:\n");
@@ -62,6 +63,21 @@ int perform_f(tr_options *tr_options, char *val)
     return (0);
 }
 
+int perform_z(tr_options *tr_options, char *val)
+{
+    if (!val || ft_strlen(val) == 0)
+        exit(str_error("Option `-z' requires an argument: `-z sendwait'", 1));
+
+    int nb = ft_atoi(val);
+
+    if (nb < 1 || nb > 10)
+        exit(str_error("Maximum interval cannot be less than 1 or more than 10 secondes", 1));
+
+    tr_options->hopes_interval = nb;
+
+    return (0);
+}
+
 int parse_args(int argc, char **argv, traceroute *traceroute, tr_options *tr_options)
 {
     int i = 0;
@@ -78,6 +94,8 @@ int parse_args(int argc, char **argv, traceroute *traceroute, tr_options *tr_opt
             perform_m(tr_options, argv[++i]);
         else if (ft_strncmp(arg, "-q", ft_strlen(arg)) == 0)
             perform_q(tr_options, argv[++i]);
+        else if (ft_strncmp(arg, "-z", ft_strlen(arg)) == 0)
+            perform_z(tr_options, argv[++i]);
         else if (ft_strncmp(arg, "-f", ft_strlen(arg)) == 0)
             perform_f(tr_options, argv[++i]);
         else if (!traceroute->arg_target)

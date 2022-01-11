@@ -40,6 +40,7 @@ typedef struct traceroute {
 typedef struct tr_options {
     int ICMP;
     int max_hops;
+    int hopes_interval;
     int nb_probes;
     int first_ttl;
 } tr_options;

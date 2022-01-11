@@ -23,6 +23,10 @@ int send_pkt_probes(traceroute *traceroute, tr_options *tr_options, int ttl)
 
         if (recv_data(traceroute, tr_options, &probe_info) < 0)
             return (-1);
+
+        if (tr_options->hopes_interval > 0)
+            sleep(tr_options->hopes_interval);
+
     }
 
     printf("\n");
@@ -65,6 +69,7 @@ int main(int argc, char **argv)
     tr_options.max_hops = 30;
     tr_options.nb_probes = 3;
     tr_options.first_ttl = 1;
+    tr_options.hopes_interval = 0;
 
     if (parse_args(argc, argv + 1, &traceroute, &tr_options) < 0)
         return (1);
