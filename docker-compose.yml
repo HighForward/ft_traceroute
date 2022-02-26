@@ -4,5 +4,3 @@ services:
     restart: always
     volumes:
       - .:/traceroute
-    ports:
-      - '22:22'
